@@ -15,7 +15,7 @@ export default function SearchForm(){
     }
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="m-auto w-75 mb-5">
             <input 
                 onChange={handleChange} 
                 value={keyword}

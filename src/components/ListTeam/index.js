@@ -6,7 +6,7 @@ export default function ListTeam(){
 
     const {team} = useContext(TeamContext)
 
-    if(team.length === 0) return <p>You don't have superheroes in your team</p>
+    if(team.length === 0) return <p className="text-center">You don't have superheroes in your team</p>
 
     return(
         <div>

@@ -29,6 +29,8 @@ const INITIAL_POWERSTATS = [
     }
     ]
 
+/* In this component i calculate the total powerstats, physicals details and the total heroes in the team */
+
 export default function TotalPowerstats(){
     const {team} = useContext(TeamContext)
     const [physical, setPhysical] = useState([0,0])
@@ -100,12 +102,14 @@ export default function TotalPowerstats(){
         {
             /* Sort from highest to lowest */
             powerstats.sort((a, b) => (a.cant < b.cant ? 1 : a.cant > b.cant ? -1 : 0)).map((powerstat) => (
-                <p className="m-0">{powerstat.type}: {powerstat.cant}</p>
+                <p className="m-0">⭐ <b>{powerstat.type}</b>: {powerstat.cant}</p>
                ))
         }
-            <p className="m-0">Average height: {physical[0]}kg</p>
-            <p className="m-0">Average weight: {physical[1]}cm</p>
-            <p> Good heroes: {total[0]}/3 - Bad heroes: {total[1]}/3 - Total heroes: {parseInt(total[0])+parseInt(total[1])}/6</p>
+            <p className="m-0"><b>Average height</b>: {physical[0]}kg</p>
+            <p className="m-0"><b>Average weight</b>: {physical[1]}cm</p>
+            <p className="m-0"> <b>Good heroes</b>: {total[0]}/3 </p> 
+            <p className="m-0"><b>Bad heroes</b>: {total[1]}/3 </p> 
+            <p className="m-0"><b>Total heroes</b>: {parseInt(total[0])+parseInt(total[1])}/6</p>
         </div>
     )
 }

@@ -43,15 +43,16 @@ export default function ListSuperHero({superhero}){
     }
 
     return (
-        <div className="container text-center">
+        <div className="container text-center card-heroe">
             <div className="row">
             {superhero.map(superhero => (
                 <div className="card m-1 p-0 mx-auto" style={{maxWidth: "15rem"}} key={superhero.id}>
                     <img src={superhero.image.url} className="card-img-top" alt={superhero.name} />
                     <div className="card-body">
-                        <h5 className="card-title">{superhero.name}</h5>
+                        <small>{superhero.biography.alignment}</small>
+                        <h5 className="card-title m-0">{superhero.name}</h5>
                         <p className="card-text">{superhero.biography['full-name']}</p>
-                        <button onClick={() => handleAdd(superhero.id)} className="btn btn-success">Add</button>
+                        <button onClick={() => handleAdd(superhero.id)} className="btn btn-success">Add to team</button>
                     </div> 
                 </div>
             ))}
