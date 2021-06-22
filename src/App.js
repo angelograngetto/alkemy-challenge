@@ -14,9 +14,6 @@ function App() {
     <div>
       <Link to="/"><h1 className="text-center mt-2 m-0">SUPERHEROES ⚡</h1></Link>
       <p className="text-center mb-4">Make your team and FIGHT!</p>
-      <div className="container">
-        <SearchForm/>
-      </div>
       <TeamContextProvider>
         <Route
           path="/"

@@ -2,9 +2,13 @@ import { useState, useEffect } from "react"
 import getSuperhero from "services/getSuperhero"
 import ListSuperHero from "components/ListSuperHero"
 import Loader from 'components/Loader'
+import IsLogged from "hooks/IsLogged"
+import SearchForm from 'components/SearchForm'
 
 
 export default function SearchResults({params}){
+
+    IsLogged()
     const {keyword} = params
     const [isLoading, setIsLoading] = useState(true)
     const [superhero, setsuperhero] = useState()
@@ -32,7 +36,10 @@ export default function SearchResults({params}){
         <div>
             {isLoading 
             ? <Loader/>
-            : <ListSuperHero superhero={superhero}/>
+            : <div className="container">
+                <SearchForm/>
+                <ListSuperHero superhero={superhero}/>
+              </div>
             }
         </div>
     )

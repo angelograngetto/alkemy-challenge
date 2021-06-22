@@ -102,7 +102,7 @@ export default function TotalPowerstats(){
         {
             /* Sort from highest to lowest */
             powerstats.sort((a, b) => (a.cant < b.cant ? 1 : a.cant > b.cant ? -1 : 0)).map((powerstat) => (
-                <p className="m-0">⭐ <b>{powerstat.type}</b>: {powerstat.cant}</p>
+                <p key={powerstat.type} className="m-0">⭐ <b>{powerstat.type}</b>: {powerstat.cant}</p>
                ))
         }
             <p className="m-0"><b>Average height</b>: {physical[0]}kg</p>

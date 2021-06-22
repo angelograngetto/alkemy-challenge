@@ -1,9 +1,14 @@
 import ListTeam from 'components/ListTeam'
 import TotalPowerstats from "components/TotalPowerstats"
-
+import isLogged from 'hooks/IsLogged'
+import SearchForm from 'components/SearchForm'
 export default function Home(){
 
+    isLogged()
+
     return(
+        <div className="container">
+            <SearchForm/>
         <div className="container-fluid">
             <div className="row m-4">
                 <div className="col-sm-4 m-1 border p-2 rounded team-info" >
@@ -15,6 +20,7 @@ export default function Home(){
                     <ListTeam/>
                 </div>
             </div>
+        </div>
         </div>
     )
 }
