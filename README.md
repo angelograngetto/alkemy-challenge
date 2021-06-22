@@ -1,70 +1,52 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SUPERHEROES - Alkemy Challenge
 
-## Available Scripts
+Este proyecto fue realizado como Challenge para Alkemy.
+Se trata de una aplicación web construida con react para construir tu propio equipo de superheroes utilizando la API de https://superheroapi.com/ .
 
-In the project directory, you can run:
+Se puede probar a través de: https://superheroes-alkemy-zeta.vercel.app
 
-### `npm start`
+#### ¿Cómo funciona?
+El proyecto inicia con un login que hace llamada a la api de Alkemy. Una vez que el logueo fue exitoso se guarda el token en el localstorage. En cada página se verifica si éste token está guardado, en el caso de que no, se redirecciona a la página de login.
+Se buscan los superheroes que se desean en el equipo y se van agregando utilizando useContext.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Los formularios hacen verificaciones básicas utilizando la libreria Formik y cada petición http se realiza con axios.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Y el estilo fue dado con Bootstrap.
 
-### `npm test`
+Vale destacar que se podrían haber refactorizado muchas partes del código como así tambien agregar más funcionalidades como la de guardar el equipo creado para que una vez que se salió de la página y se vuelva a entrar éste se cargue que por la falta de tiempo no pudo ser realizado.
+## Environment Variables
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para ejecutar este proyecto es necesario realizar un archivo .env con la siguiente variable de entorno.
 
-### `npm run build`
+`REACT_APP_API_KEY`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  
+## Ejecutar localmente
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Clonar el proyecto
 
-### `npm run eject`
+```bash
+  git clone url-de-git
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Ve al directorio del proyecto
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+  cd nombre-de-proyecto
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Instala las dependencias
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+  npm install
+```
 
-## Learn More
+Inicia el servidor
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+  npm run start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  
