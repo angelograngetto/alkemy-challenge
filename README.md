@@ -4,7 +4,7 @@
 Este proyecto fue realizado como Challenge para Alkemy.
 Se trata de una aplicación web construida con react para construir tu propio equipo de superheroes utilizando la API de https://superheroapi.com/ .
 
-Se puede probar a través de: https://superheroes-alkemy-zeta.vercel.app
+
 
 #### ¿Cómo funciona?
 El proyecto inicia con un login que hace llamada a la api de Alkemy. Una vez que el logueo fue exitoso se guarda el token en el localstorage. En cada página se verifica si éste token está guardado, en el caso de que no, se redirecciona a la página de login.
