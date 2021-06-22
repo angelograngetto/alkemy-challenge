@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import {Route} from 'wouter'
+
+import Home from 'pages/Home'
+import Login from 'pages/Login'
+import SearchResults from 'pages/SearchResults';
+
+import { TeamContextProvider } from 'context/TeamContext'
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <TeamContextProvider>
+        <Route
+          path="/"
+          component={Home}
+        />
+        <Route
+          path="/search/:keyword"
+          component={SearchResults}
+        />
+      </TeamContextProvider>
+      <Route
+        path="/login"
+        component={Login}
+      />
     </div>
   );
 }

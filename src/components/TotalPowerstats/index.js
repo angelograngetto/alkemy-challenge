@@ -1,0 +1,102 @@
+import {useState, useContext, useEffect} from 'react'
+import TeamContext from 'context/TeamContext'
+
+
+const INITIAL_POWERSTATS = [
+    {
+        type: "Intelligence",
+        cant: 0
+    },
+    {
+        type: "Strength",
+        cant: 0
+    },
+    {
+        type: "Speed",
+        cant: 0
+    },
+    {
+        type: "Durability",
+        cant: 0
+    },
+    {
+        type: "Power",
+        cant: 0
+    },
+    {
+        type: "Combat",
+        cant: 0
+    }
+    ]
+
+export default function TotalPowerstats(){
+    const {team} = useContext(TeamContext)
+    const [physical, setPhysical] = useState([0,0])
+    const [powerstats, setPowerstats] = useState(INITIAL_POWERSTATS)
+
+        useEffect(()=>{
+            let intelligence = 0
+            let strength = 0
+            let speed = 0
+            let durability = 0
+            let power = 0
+            let combat = 0
+            let weight = 0
+            let height = 0
+            console.log("useeffect")
+                console.log(team)
+                team.forEach(team => {
+                    intelligence += parseInt(team.hero.powerstats.intelligence)
+                    strength += parseInt(team.hero.powerstats.strength)
+                    speed += parseInt(team.hero.powerstats.speed)
+                    durability += parseInt(team.hero.powerstats.durability)
+                    power += parseInt(team.hero.powerstats.power)
+                    combat += parseInt(team.hero.powerstats.combat)
+                    weight += parseInt(team.hero.appearance.weight[1])
+                    height += parseInt(team.hero.appearance.height[1])
+                })
+                setPowerstats([
+                    {
+                        type: "Intelligence",
+                        cant: intelligence
+                    },
+                    {
+                        type: "Strength",
+                        cant: strength
+                    },
+                    {
+                        type: "Speed",
+                        cant: speed
+                    },
+                    {
+                        type: "Durability",
+                        cant: durability
+                    },
+                    {
+                        type: "Power",
+                        cant: power
+                    },
+                    {
+                        type: "Combat",
+                        cant: combat
+                    }
+                ])
+                weight = weight/team.length
+                height = height/team.length
+                setPhysical([weight,height])
+        }, [team])
+
+
+    return(
+        <div>
+        {
+            /* Sort from highest to lowest */
+            powerstats.sort((a, b) => (a.cant < b.cant ? 1 : a.cant > b.cant ? -1 : 0)).map((powerstat) => (
+                <p className="m-0">{powerstat.type}: {powerstat.cant}</p>
+               ))
+        }
+            <p className="m-0">Average height: {physical[0]}kg</p>
+            <p className="m-0">Average weight: {physical[1]}cm</p>
+        </div>
+    )
+}
