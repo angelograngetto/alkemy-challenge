@@ -32,6 +32,7 @@ const INITIAL_POWERSTATS = [
 export default function TotalPowerstats(){
     const {team} = useContext(TeamContext)
     const [physical, setPhysical] = useState([0,0])
+    const [total, setTotal] = useState([0,0])
     const [powerstats, setPowerstats] = useState(INITIAL_POWERSTATS)
 
         useEffect(()=>{
@@ -43,6 +44,8 @@ export default function TotalPowerstats(){
             let combat = 0
             let weight = 0
             let height = 0
+            let good = 0
+            let bad = 0
             console.log("useeffect")
                 console.log(team)
                 team.forEach(team => {
@@ -54,6 +57,8 @@ export default function TotalPowerstats(){
                     combat += parseInt(team.hero.powerstats.combat)
                     weight += parseInt(team.hero.appearance.weight[1])
                     height += parseInt(team.hero.appearance.height[1])
+                   if (team.hero.biography.alignment === "good") good++
+                   if (team.hero.biography.alignment === "bad") bad++
                 })
                 setPowerstats([
                     {
@@ -81,9 +86,12 @@ export default function TotalPowerstats(){
                         cant: combat
                     }
                 ])
-                weight = weight/team.length
-                height = height/team.length
+                if (weight !== 0) weight = weight/team.length
+                
+                if (height !== 0) height = height/team.length
+                
                 setPhysical([weight,height])
+                setTotal([good,bad])
         }, [team])
 
 
@@ -97,6 +105,7 @@ export default function TotalPowerstats(){
         }
             <p className="m-0">Average height: {physical[0]}kg</p>
             <p className="m-0">Average weight: {physical[1]}cm</p>
+            <p> Good heroes: {total[0]}/3 - Bad heroes: {total[1]}/3 - Total heroes: {parseInt(total[0])+parseInt(total[1])}/6</p>
         </div>
     )
 }
