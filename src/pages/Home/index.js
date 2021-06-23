@@ -1,6 +1,6 @@
 import ListTeam from 'components/ListTeam'
 import TotalPowerstats from "components/TotalPowerstats"
-import isLogged from 'hooks/IsLogged'
+import isLogged from 'middleware/IsLogged'
 import SearchForm from 'components/SearchForm'
 export default function Home(){
 

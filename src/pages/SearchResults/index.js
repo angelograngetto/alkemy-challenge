@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import getSuperhero from "services/getSuperhero"
 import ListSuperHero from "components/ListSuperHero"
 import Loader from 'components/Loader'
-import IsLogged from "hooks/IsLogged"
+import IsLogged from "middleware/IsLogged"
 import SearchForm from 'components/SearchForm'
 
 

@@ -1,7 +1,7 @@
 import {useEffect, useState} from 'react'
 import getSingleSuperhero from 'services/getSingleSuperhero'
 import Loader from 'components/Loader'
-import IsLogged from 'hooks/IsLogged'
+import IsLogged from 'middleware/IsLogged'
 import SearchForm from 'components/SearchForm'
 
 export default function Detail({params}){
